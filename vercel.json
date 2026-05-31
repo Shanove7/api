@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install --legacy-peer-deps",
+  "functions": {
+    "pages/api/**/*.js": {
+      "maxDuration": 60,
+      "memory": 1024
+    }
+  },
+  "env": {
+    "MY_MONGODB_URI": "@my_mongodb_uri",
+    "MY_DOMAIN_URL": "@my_domain_url",
+    "MY_DOMAIN_VERCEL": "@my_domain_vercel",
+    "MY_NEXTAUTH_SECRET": "@my_nextauth_secret",
+    "MY_PASSWORD": "@my_password",
+    "MY_GOOGLE_CLIENT_ID": "@my_google_client_id",
+    "MY_GOOGLE_CLIENT_SECRET": "@my_google_client_secret",
+    "MY_GITHUB_ID": "@my_github_id",
+    "MY_GITHUB_SECRET": "@my_github_secret",
+    "MY_SONIVA_KEY": "@my_soniva_key",
+    "MY_SUNOAPI_KEY": "@my_sunoapi_key",
+    "MY_LIMIT_POINTS": "@my_limit_points",
+    "MY_LIMIT_DURATION": "@my_limit_duration",
+    "NEXTAUTH_SECRET": "@my_nextauth_secret",
+    "NEXTAUTH_URL": "@nextauth_url"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization, X-Requested-With" }
+      ]
+    }
+  ]
+}
